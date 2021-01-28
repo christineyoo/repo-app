@@ -1,3 +1,50 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  body {
+    background: #485563;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;    
+    margin: 100px;
+  }
+
+  a {
+      color: #fff;
+      text-decoration: none;
+  }
+
+  li {
+     list-style-type: none;
+  }
+
+#button {
+    margin: 20px;
+    padding: 10px;
+    background-color: Transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    }
+
+#js-search-term {
+    margin: 20px;
+    padding: 10px;
+    background-color: Transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+#js-error-message {
+    color: #DC2424;
+}
+
+
 .hidden {
     display: none;
   }

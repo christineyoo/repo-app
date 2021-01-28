@@ -2,14 +2,13 @@
 
 function displayResults(responseJson) {
   // if there are previous results, remove them
-  console.log(responseJson);
   $('#results-list').empty();
   // iterate through the repos array
   for (let i = 0; i < responseJson.length; i++){
     $('#results-list').append(
       `<li><h3>${responseJson[i].name}</h3>
       <p><a href="${responseJson[i].html_url}" target="_blank">${responseJson[i].html_url}</a></p>
-      </li>`
+      </li><hr class="repo">`
     )};
   //display the results section  
   $('#results').removeClass('hidden');
@@ -17,8 +16,6 @@ function displayResults(responseJson) {
 
 function getRepos(username) {
   const url = `https://api.github.com/users/${username}/repos`;
-  console.log(url);
-
   const options = {
     method: 'GET'
   };
@@ -32,7 +29,7 @@ function getRepos(username) {
     })
     .then(responseJson => displayResults(responseJson))
     .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
+      $('#js-error-message').text(`Something went wrong. Please refresh the page and try again.`);
     });
 }
 
