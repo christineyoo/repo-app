@@ -2,40 +2,26 @@
 
 const apiKey = "833ea1b9d7mshbef97797dff363dp1d9ac4jsna2801a24e32d";
 
-
-
-
-function formatQueryParams(params) {
-  const queryItems = Object.keys(params)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-  return queryItems.join('');
-}
-
 function displayResults(responseJson) {
   // if there are previous results, remove them
   console.log(responseJson);
   $('#results-list').empty();
   // iterate through the articles array, stopping at the max number of results
-  for (let i = 0; i < responseJson.value.length; i++){
+  for (let i = 0; i < responseJson.length; i++){
     $('#results-list').append(
-      `<li><h3><a href="${responseJson.value[i].owner.url}">${responseJson.value[i].name}</a></h3>
+      `<li><h3><a href="${responseJson[i].owner.url}">${responseJson[i].name}</a></h3>
       </li>`
     )};
   //display the results section  
   $('#results').removeClass('hidden');
 };
 
-function getRepos(query) {
-  const params = {
-    q: query
-  };
-  const queryString = formatQueryParams(params)
-  const url = `https://api.github.com/users/${queryString}/repos`;
+function getRepos(username) {
+  const url = `https://api.github.com/users/${username}/repos`;
   console.log(url);
 
   const options = {
-    headers: new Headers({
-      "x-rapidapi-key": apiKey})
+    method: 'GET'
   };
 
   fetch(url, options)
