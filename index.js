@@ -1,15 +1,14 @@
 'use strict';
 
-const apiKey = "833ea1b9d7mshbef97797dff363dp1d9ac4jsna2801a24e32d";
-
 function displayResults(responseJson) {
   // if there are previous results, remove them
   console.log(responseJson);
   $('#results-list').empty();
-  // iterate through the articles array, stopping at the max number of results
+  // iterate through the repos array
   for (let i = 0; i < responseJson.length; i++){
     $('#results-list').append(
-      `<li><h3><a href="${responseJson[i].owner.url}">${responseJson[i].name}</a></h3>
+      `<li><h3>${responseJson[i].name}</h3>
+      <p><a href="${responseJson[i].html_url}" target="_blank">${responseJson[i].html_url}</a></p>
       </li>`
     )};
   //display the results section  
